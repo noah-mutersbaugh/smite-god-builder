@@ -59,7 +59,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                 <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
-                                <v-button to="/Achilles">View</v-button>
+                                <a href="https://www.noahmutersbaugh.xyz/Achilles/" target="_blank" rel="noopener">View</a>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                                 </div>
                                 <small class="text-muted">9 mins</small>
