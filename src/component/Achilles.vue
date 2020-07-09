@@ -1,5 +1,5 @@
 <template>
-    <div class="App">
+    <div id="component" class="Achilles">
         <!-- Custom styles for this template -->
         <link href="assets/album.css" rel="stylesheet">
 
@@ -51,8 +51,7 @@
                         <h1>The builder parts</h1>
                         <p className="lead text-muted"> Something lovely about the collection </p>
                         <p>
-                            <a href="#" className="btn btn-primary my-2">Main call to action</a>
-                            <a href="#" className="btn btn-secondary my-2">Secondary action</a>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/')">Back to home</button>
                         </p>
                     </div>
                 </section>
@@ -72,7 +71,7 @@
 
 <script>
 export default {
-    name: 'App',
+    name: 'achilles',
     data() {
         return {
             msg: 'Welcome to the web app!'
@@ -82,16 +81,14 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+ #app, #component {
   width: 100%;
   height: 100%;
-  padding: 25% 10%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-flow: column nowrap;
   text-align: center;
-  font-size: 3vh;
 }
 
 .bd-placeholder-img {
@@ -104,8 +101,12 @@ user-select: none;
 }
 
 @media (min-width: 768px) {
-.bd-placeholder-img-lg {
-    font-size: 3.5rem;
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }
+
+header, main, footer {
+    width: 100%;
 }
 </style>
