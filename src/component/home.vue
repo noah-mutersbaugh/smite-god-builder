@@ -1,5 +1,8 @@
 <template>
     <div class="Home">
+        <!-- Custom styles for this template -->
+        <link href="assets/album.css" rel="stylesheet">
+        
         <header>
             <div class="collapse bg-dark" id="navbarHeader">
                 <div class="container">
@@ -38,7 +41,7 @@
                     <h1>Smite God</h1>
                     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
                     <p>
-                        <a href="#" class="btn btn-primary my-2">Main call to action</a> 
+                        <a href="#" class="btn btn-primary my-2">Main call to action</a>
                         <a href="#" class="btn btn-secondary my-2">Secondary action</a>
                     </p>
                 </div>
@@ -52,7 +55,7 @@
                             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Achilles"><title>Achilles</title><rect width="100%" height="100%" fill="#55595c"/><img src="images/achilles.jpg" alt="achilles"><text x="50%" y="50%" fill="#eceeef" dy=".3em">Achilles</text></svg> -->
                             <img src="../images/achilles.jpg" alt="achilles" width="100%" height="225">
                             <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Achilles</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                 <!-- <button type="button" class="btn btn-sm btn-outline-secondary">View</button> -->
@@ -69,10 +72,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/agni.jpg" alt="agni" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Agni</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Agni')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -85,10 +88,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/anhur.jpg" alt="anhur" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Anhur</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Anhur')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -102,10 +105,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/amaterasu.jpg" alt="amaterasu" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Amaterasu</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Amaterasu')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -118,10 +121,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/anubis.jpg" alt="anubis" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Anubis</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Anubis')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -134,10 +137,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/aphrodite.jpg" alt="aphrodite" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Aphrodite</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Aphrodite')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -151,10 +154,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/apollo.jpg" alt="apollo" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Apollo</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Apollo')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -167,10 +170,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/arachne.jpg" alt="arachne" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Arachne</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Arachne')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -183,10 +186,10 @@
                         <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
                         <img src="../images/artemis.jpg" alt="artemis" width="100%" height="225">
                         <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Artemis</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" @click="$router.push('/Artemis')">View</button>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                             <small class="text-muted">9 mins</small>
@@ -260,24 +263,24 @@ user-select: none;
       padding-bottom: 6rem;
     }
   }
-  
+
   .jumbotron p:last-child {
     margin-bottom: 0;
   }
-  
+
   .jumbotron h1 {
     font-weight: 300;
   }
-  
+
   .jumbotron .container {
     max-width: 40rem;
   }
-  
+
   footer {
     padding-top: 3rem;
     padding-bottom: 3rem;
   }
-  
+
   footer p {
     margin-bottom: .25rem;
   }
