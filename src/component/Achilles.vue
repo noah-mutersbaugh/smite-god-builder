@@ -86,17 +86,35 @@
               alt="achilles"
               width="100%"
               height="225"
-              v-on:click="home"
+              @click="$router.push('/home')"
             />
           </div>
+
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
-              <b-dropdown text="Select Items">
-                <b-dropdown-item href="#">An item</b-dropdown-item>
-                <b-dropdown-item href="#">Another item</b-dropdown-item>
-              </b-dropdown>
+              <dropdown>
+                <template slot="btn">Items</template>
+                <template slot="body">
+                    <ul>
+                        <li>
+                            <dropdown: trigger="'hover'" :role="'sublist'" :align="'right'">
+                                <template slot="btn">Consumable Items</template>
+                                <template slot="body">
+                                   <ul> 
+                                        <li v-for="ConsumeItem in ['Babas Brew', 2, 3, 4, 5]" v-bind:key="ConsumeItem.id">
+                                            <label>
+                                                <input type="checkbox">item {{ i }}
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </template>
+                            </dropdown:>
+                        </li>
+                    </ul>
+                </template>
+                </dropdown>
               <div class="d-flex justify-content-between align-items-center">
-                <b-img v-bind="mainProps" alt="Transparent image"></b-img>
+                <b-img v-bind="mainProps" blank-color="gray" alt="Named color image (gray)"></b-img>
               </div>
             </div>
           </div>
