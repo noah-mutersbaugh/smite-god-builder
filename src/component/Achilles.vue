@@ -95,36 +95,100 @@
               <dropdown>
                 <template slot="btn">Items</template>
                 <template slot="body">
-                    <ul>
-                        <li>
-                            <dropdown: trigger="'hover'" :role="'sublist'" :align="'right'">
-                                <template slot="btn">Consumable Items</template>
-                                <template slot="body">
-                                   <ul> 
-                                        <li v-for="ConsumeItem in ['Babas Brew', 2, 3, 4, 5]" v-bind:key="ConsumeItem.id">
-                                            <label>
-                                                <input type="checkbox">item {{ i }}
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </template>
-                            </dropdown:>
-                        </li>
-                    </ul>
+                  <ul>
+                    <li>
+                      <dropdown : trigger="hover" :role="sublist" :align="right">
+                      <template
+                        slot="btn"
+                      >Consumable Items</template>
+                      <template slot="body">
+                        <ul>
+                          <li>
+                            <input
+                              type="checkbox"
+                              id="bababrew"
+                              value="Babas Brew"
+                              v-model="ItemName"
+                            />
+                            <label for="bababrew">Baba's Brew</label>
+                          </li>
+                          <li>
+                            <input
+                              type="checkbox"
+                              id="elixDefense"
+                              value="Elixir of Defense"
+                              v-model="ItemName"
+                            />
+                            <label for="elixDefense">Elixir of Defense</label>
+                          </li>
+                        </ul>
+                      </template>
+                    </li>
+                  </ul>
                 </template>
-                </dropdown>
-              <div class="d-flex justify-content-between align-items-center">
-                <b-img v-bind="mainProps" blank-color="gray" alt="Named color image (gray)"></b-img>
+              </dropdown>
+              <div>
+                <span>Items: {{ItemName}}</span>
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <h1>Stats section</h1>
-            <blockquote
-              class="blockquote"
-            >working on 3 tables: offense, defense and utility updatable by the items selected throught the dropdown menu.</blockquote>
+            <h1>Stats</h1>
+            <template>
+              <div id="app">
+                <sorted-table :values="values">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="name">Name</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="health">Health</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="mana">Mana</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="baseAtkDamage">Basic Attack Damage</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="phyProtect">Physical Protection</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="hp5">HP5</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="mp5">MP5</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="atkSpeed">Attack Speeed</sort-link>
+                      </th>
+                      <th scope="col" style="text-align: left; width: 10rem;">
+                        <sort-link name="moveSpeed">Movement Speed</sort-link>
+                      </th>
+                    </tr>
+                  </thead>
+                  <template #body="sort">
+                    <tbody>
+                      <tr v-for="values in sort.values" :key="values.name">
+                        <td>{{ value.name }}</td>
+                        <td>{{ value.health }}</td>
+                        <td>{{ value.mana }}</td>
+                        <td>{{ value.baseAtkDamage }}</td>
+                        <td>{{ value.phyProtect }}</td>
+                        <td>{{ value.hp5 }}</td>
+                        <td>{{ value.mp5 }}</td>
+                        <td>{{ value.atkSpeed }}</td>
+                        <td>{{ value.moveSpeed }}</td>
+                      </tr>
+                      <!-- to do: sum -->
+                    </tbody>
+                  </template>
+                </sorted-table>
+              </div>
+            </template>
           </div>
         </div>
       </div>
@@ -150,7 +214,42 @@ export default {
   name: "achilles",
   data() {
     return {
-      mainProps: { blank: true, width: 75, height: 75, class: "m1" }
+      mainProps: { blank: true, width: 75, height: 75, class: "m1" },
+      values: [
+        {
+          name: "Base",
+          health: 547,
+          mana: 240,
+          baseAtkDamage: 40,
+          phyProtect: 20,
+          hp5: 9.75,
+          mp5: 5.09,
+          atkSpeed: 0.96,
+          moveSpeed: 370
+        },
+        /* {
+          name: "Elixir of Defense",
+          health: +0,
+          mana: +0,
+          baseAtkDamage: +0,
+          phyProtect: +50,
+          hp5: +0,
+          mp5: +0,
+          atkSpeed: +0,
+          moveSpeed: +0
+        },
+        {
+          name: "Baba's Brew",
+          health: +0,
+          mana: +0,
+          baseAtkDamage: +0,
+          phyProtect: +0,
+          hp5: +0,
+          mp5: +0,
+          atkSpeed: +0,
+          moveSpeed: +0
+        } */
+      ]
     };
   }
 };
