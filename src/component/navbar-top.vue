@@ -48,7 +48,7 @@
             />
             <circle cx="12" cy="13" r="4" />
           </svg>
-          <strong>Smite God Builder</strong>
+          <strong @click="$router.push('/')">Smite God Builder</strong>
         </a>
         <button
           class="navbar-toggler"

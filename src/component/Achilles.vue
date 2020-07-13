@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <h1>The builder parts</h1>
+            <h1>The builder part</h1>
             <p class="lead text-muted">Something lovely about the collection</p>
             <img
               left
@@ -13,10 +13,9 @@
               alt="achilles"
               width="100%"
               height="225"
-              @click="$router.push('/home')"
             />
           </div>
-
+<!-- @click="$router.push('/home')" -->
           <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
               <dropdown>
