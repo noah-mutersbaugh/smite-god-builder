@@ -2,16 +2,19 @@
     <div id="app">
         <NavigationTop></NavigationTop>
         <router-view></router-view>
+        <VueFooter></VueFooter>
     </div>
 </template>
 
 <script>
-import NavigationTop from '@/component/navbar-top.vue'
+import NavigationTop from '@/component/navbar-top.vue';
+import VueFooter from '@/component/vue-footer.vue';
 
 export default {
     name: 'App',
     components: {
-        NavigationTop
+        NavigationTop,
+        VueFooter
     },
     data() {
         return {

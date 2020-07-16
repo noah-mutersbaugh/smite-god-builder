@@ -2,152 +2,106 @@
   <div id="component" class="Achilles">
     <main role="main">
       <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h1>The builder parts</h1>
-            <p class="lead text-muted">Something lovely about the collection</p>
-            <img
-              left
-              src="../images/achilles.jpg"
-              class="img-rounded"
-              alt="achilles"
-              width="100%"
-              height="225"
-              @click="$router.push('/home')"
-            />
+        <div class="row" id="top-row">
+          <div class="col">
+            <h1 class="text-center">The builder parts</h1>
+            <p class="lead text-muted"></p>
+            <div class="character-image">
+              <img
+                src="@/assets/images/Achilles.jpg"
+                class="img-rounded"
+                alt="achilles"
+                @click="$router.push('/')"
+              />
+            </div>
           </div>
 
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
+          <div class="col">
+            <div class="card mb-4 shadow-sm" id="item-row">
               <dropdown>
                 <template slot="btn">Items</template>
                 <template slot="body">
                   <ul>
                     <li>
-                      <dropdown :trigger="hover" :role="sublist" :align="right">
+                      <Dropdown>
                         <template slot="btn">Consumable Items</template>
                         <template slot="body">
                           <ul>
                             <li>
                               <input
                                 type="checkbox"
-                                id="bababrew"
-                                value="Babas Brew"
-                                v-model="ItemName"
+                                id="jotunns"
+                                value="Jotunn's Wrath"
+                                v-model="ItemNames"
+                                @change="addItem()"
                               />
-                              <label for="bababrew">Baba's Brew</label>
-                            </li>
-                            <li>
-                              <input
-                                type="checkbox"
-                                id="elixDefense"
-                                value="Elixir of Defense"
-                                v-model="ItemName"
-                              />
-                              <label for="elixDefense">Elixir of Defense</label>
+                              <label for="jotunns">Jotunn's Wrath</label>
                             </li>
                           </ul>
                         </template>
-                      </dropdown>
+                      </Dropdown>
                     </li>
                   </ul>
                 </template>
               </dropdown>
               <div>
-                <span>Items: {{ItemName}}</span>
+                <span>Items: {{ ItemNames }}</span>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-4">
-            <h1>Stats</h1>
-            <template>
-              <div id="app">
-                <sorted-table :values="values">
-                  <thead>
-                    <tr>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="name">Name</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="health">Health</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="mana">Mana</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="baseAtkDamage">Basic Attack Damage</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="phyProtect">Physical Protection</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="hp5">HP5</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="mp5">MP5</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="atkSpeed">Attack Speeed</sort-link>
-                      </th>
-                      <th scope="col" style="text-align: left; width: 10rem;">
-                        <sort-link name="moveSpeed">Movement Speed</sort-link>
-                      </th>
-                    </tr>
-                  </thead>
-                  <template #body="sort">
-                    <tbody>
-                      <tr v-for="value in sort.values" :key="value.name">
-                        <td>{{ value.name }}</td>
-                        <td>{{ value.health }}</td>
-                        <td>{{ value.mana }}</td>
-                        <td>{{ value.baseAtkDamage }}</td>
-                        <td>{{ value.phyProtect }}</td>
-                        <td>{{ value.hp5 }}</td>
-                        <td>{{ value.mp5 }}</td>
-                        <td>{{ value.atkSpeed }}</td>
-                        <td>{{ value.moveSpeed }}</td>
-                      </tr>
-                      <!-- to do: sum -->
-                    </tbody>
-                  </template>
-                </sorted-table>
-              </div>
-            </template>
+
+        <Statistics
+          :name="statistics[0].name"
+          :health="statistics[0].health"
+          :mana="statistics[0].mana"
+          :baseAtkDamage="statistics[0].baseAtkDamage"
+          :phyProtect="statistics[0].phyProtect"
+          :hp5="statistics[0].hp5"
+          :mp5="statistics[0].mp5"
+          :atkSpeed="statistics[0].atkSpeed"
+          :moveSpeed="statistics[0].moveSpeed"
+        />
+
+        <div class="input-group w-25 mb-3">
+          <div class="input-group-prepend">
+            <button
+              v-on:click="decrease()"
+              class="btn btn-outline-secondary"
+              type="button"
+              id="decrease"
+            >-</button>
+          </div>
+          <input class="quantity" min="0" max="20" name="quantity" value="1" type="number" id="number" />
+          <div class="input-group-append">
+            <button
+              v-on:click="increase()"
+              class="btn btn-outline-secondary"
+              type="button"
+              id="increase"
+            >+</button>
           </div>
         </div>
       </div>
     </main>
-
-    <footer class="text-muted">
-      <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>
-          New to Bootstrap?
-          <a href="https://getbootstrap.com/">Visit the homepage.</a>
-        </p>
-      </div>
-    </footer>
   </div>
 </template>
 
 <script>
-import Dropdown from 'bp-vuejs-dropdown';
-// import GodStats from '@/modules/godstats.js'
+import Dropdown from "bp-vuejs-dropdown";
+import Statistics from "@/component/BaseStats.vue";
+// import LevelChange from "@/component/LevelChange.vue";
 
 export default {
   name: "achilles",
   components: {
-    Dropdown
+    Dropdown,
+    Statistics
+    // LevelChange
   },
   data() {
     return {
-      mainProps: { blank: true, width: 75, height: 75, class: "m1" },
-      values: [
+      statistics: [
         {
           name: "Base",
           health: 547,
@@ -159,64 +113,78 @@ export default {
           atkSpeed: 0.96,
           moveSpeed: 370
         }
-        /* {
-          name: "Elixir of Defense",
-          health: +0,
-          mana: +0,
-          baseAtkDamage: +0,
-          phyProtect: +50,
-          hp5: +0,
-          mp5: +0,
-          atkSpeed: +0,
-          moveSpeed: +0
-        },
-        {
-          name: "Baba's Brew",
-          health: +0,
-          mana: +0,
-          baseAtkDamage: +0,
-          phyProtect: +0,
-          hp5: +0,
-          mp5: +0,
-          atkSpeed: +0,
-          moveSpeed: +0
-        } */
-      ]
+      ],
+      ItemNames: []
     };
+  },
+  methods: {
+    addItem() {
+      var checkBox = document.getElementById("jotunns");
+      if (checkBox.checked == true) {
+        this.statistics[0].baseAtkDamage += 40;
+        this.statistics[0].mana += 150;
+      } else {
+        this.statistics[0].baseAtkDamage -= 40;
+        this.statistics[0].mana -= 150;
+      }
+    },
+    increase: function() {
+      var value = parseInt(document.getElementById("number").value, 10);
+      value = isNaN(value) ? 0 : value;
+
+      if (value < 20) {
+        value++;
+        document.getElementById("number").value = value;
+        this.statistics[0].health += 85;
+        this.statistics[0].mana += 35;
+        this.statistics[0].baseAtkDamage += 2;
+        this.statistics[0].phyProtect += 3;
+        this.statistics[0].hp5 += 1;
+        this.statistics[0].mp5 += 1;
+        this.statistics[0].atkSpeed += 0.01;
+        this.statistics[0].moveSpeed += 0;
+      }
+    },
+    decrease: function() {
+      var value = parseInt(document.getElementById("number").value, 10);
+      value = isNaN(value) ? 0 : value;
+
+      if (value > 1) {
+        value--;
+        document.getElementById("number").value = value;
+        this.statistics[0].health -= 85;
+        this.statistics[0].mana -= 35;
+        this.statistics[0].baseAtkDamage -= 2;
+        this.statistics[0].phyProtect -= 3;
+        this.statistics[0].hp5 -= 1;
+        this.statistics[0].mp5 -= 1;
+        this.statistics[0].atkSpeed -= 0.01;
+        this.statistics[0].moveSpeed -= 0;
+      }
+    }
   }
 };
 </script>
 
-<style lang="scss">
-#app,
-#component {
-  width: 100%;
-  height: 100%;
+<style scoped>
+.row {
+  padding-bottom: 3rem;
+}
+
+#item-row {
   display: flex;
+  flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
+}
+
+.container {
+  display: flex;
   flex-flow: column nowrap;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-header,
-main,
-footer {
+#top-row {
   width: 100%;
 }
 </style>
