@@ -546,8 +546,8 @@ const routes = [
         component: Scylla
     },
     {
-        path: '/serget',
-        name: 'serget',
+        path: '/serqet',
+        name: 'serqet',
         component: Serqet
     },
     {
