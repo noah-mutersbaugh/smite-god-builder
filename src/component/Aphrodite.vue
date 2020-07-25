@@ -1,5 +1,5 @@
 <template>
-  <div id="component" class="Aphrodite">
+  <div id="component" class="aphrodite">
     <main role="main">
       <div class="container">
         <div class="row" id="top-row">
@@ -8,7 +8,7 @@
             <p class="lead text-muted"></p>
             <div class="character-image">
               <img
-                src="@/assets/images/Aphrodite.jpg"
+                src="@/assets/images/aphrodite.jpg"
                 class="img-rounded"
                 alt="aphrodite"
                 @click="$router.push('/')"

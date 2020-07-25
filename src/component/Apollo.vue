@@ -1,5 +1,5 @@
 <template>
-  <div id="component" class="Apollo">
+  <div id="component" class="apollo">
     <main role="main">
       <div class="container">
         <div class="row" id="top-row">
@@ -8,7 +8,7 @@
             <p class="lead text-muted"></p>
             <div class="character-image">
               <img
-                src="@/assets/images/Apollo.jpg"
+                src="@/assets/images/apollo.jpg"
                 class="img-rounded"
                 alt="apollo"
                 @click="$router.push('/')"

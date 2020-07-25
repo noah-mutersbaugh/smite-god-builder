@@ -1,5 +1,5 @@
 <template>
-  <div id="component" class="Achilles">
+  <div id="component" class="achilles">
     <main role="main">
       <div class="container">
         <div class="row" id="top-row">
@@ -8,7 +8,7 @@
             <p class="lead text-muted"></p>
             <div class="character-image">
               <img
-                src="@/assets/images/Achilles.jpg"
+                src="@/assets/images/achilles.jpg"
                 class="img-rounded"
                 alt="achilles"
                 @click="$router.push('/')"
