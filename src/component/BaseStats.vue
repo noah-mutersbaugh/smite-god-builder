@@ -46,7 +46,6 @@
             <td style="text-align: center;">{{ atkSpeed }}</td>
             <td style="text-align: center;">{{ moveSpeed }}</td>
           </tr>
-          <!-- to do: sum -->
         </tbody>
       </table>
     </div>
