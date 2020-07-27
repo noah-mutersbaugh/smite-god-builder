@@ -81,7 +81,7 @@ import Poseidon from '../component/poseidon.vue';
 import Ra from '../component/ra.vue';
 import Raijin from '../component/raijin.vue';
 import Rama from '../component/rama.vue';
-import Ratakoskr from '../component/ratatoskr.vue';
+import Ratatoskr from '../component/ratatoskr.vue';
 import Ravana from '../component/ravana.vue';
 import Scylla from '../component/scylla.vue';
 import Serqet from '../component/serqet.vue';
@@ -286,8 +286,8 @@ const routes = [
         component: Cupid
     },
     {
-        path: '/daji',
-        name: 'daji',
+        path: '/da-ji',
+        name: 'da-ji',
         component: DaJi
     },
     {
@@ -371,8 +371,8 @@ const routes = [
         component: HouYi
     },
     {
-        path: '/hunBatz',
-        name: 'hunBatz',
+        path: '/hun-batz',
+        name: 'hun-batz',
         component: HunBatz
     },
     {
@@ -531,9 +531,9 @@ const routes = [
         component: Rama
     },
     {
-        path: '/ratakoskr',
-        name: 'ratakoskr',
-        component: Ratakoskr
+        path: '/ratatoskr',
+        name: 'ratatoskr',
+        component: Ratatoskr
     },
     {
         path: '/ravana',
@@ -571,8 +571,8 @@ const routes = [
         component: Sol
     },
     {
-        path: '/sun-wu-kong',
-        name: 'sun-wu-kong',
+        path: '/sun-wukong',
+        name: 'sun-wukong',
         component: SunWukong
     },
     {
