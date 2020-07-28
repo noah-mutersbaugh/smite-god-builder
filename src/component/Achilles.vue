@@ -24,20 +24,126 @@
                   <ul>
                     <li>
                       <Dropdown>
-                        <template slot="btn">Consumable Items</template>
+                        <template slot="btn">Passive Items</template>
+                        <template slot="body">
+                          <ul>
+                            <li>
+                              <Dropdown>
+                                <template slot="btn">Tier III</template>
+                                <template slot="body">
+                                  <ul>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="gauntthebes"
+                                        value="Gauntlet of Thebes"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="gauntthebes">Gauntlet of Thebes</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="heartsk"
+                                        value="Heartseeker"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="heartsk">Heartseeker</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="hideofur"
+                                        value="Hide of the Urchin"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="hideofur">Hide of the Urchin</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="hydral"
+                                        value="Hydra's Lament"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="hydral">Hydra's Lament</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="jotunns"
+                                        value="Jotunn's Wrath"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="jotunns">Jotunn's Wrath</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="mailrn"
+                                        value="Mail of Renewal"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="mailrn">Mail of Renewal</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="polynom"
+                                        value="Polynomicon"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="polynom">Polynomicon</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="magus"
+                                        value="Spear of the Magus"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="magus">Spear of the Magus</label>
+                                    </li>
+                                  </ul>
+                                </template>
+                              </Dropdown>
+                            </li>
+                          </ul>
+                        </template>
+                      </Dropdown>
+                      <Dropdown>
+                        <template slot="btn">Relics</template>
                         <template slot="body">
                           <ul>
                             <li>
                               <input
                                 type="checkbox"
-                                id="jotunns"
-                                value="Jotunn's Wrath"
+                                id="heavenwings"
+                                value="Heavenly Wings"
                                 v-model="ItemNames"
                                 @change="addItem()"
                               />
-                              <label for="jotunns">Jotunn's Wrath</label>
+                              <label for="heavenwings">Heavenly Wings</label>
                             </li>
-                          </ul>
+                            <li>
+                              <input
+                                type="checkbox"
+                                id="purificbds"
+                                value="Purification Beads"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="purificbds">Purification Beads</label>
+                            </li>
+                          </ul> 
                         </template>
                       </Dropdown>
                     </li>
