@@ -29,9 +29,157 @@
                           <ul>
                             <li>
                               <Dropdown>
+                                <template slot="btn">Tier I</template>
+                                <template slot="body">
+                                  <ul>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="boots"
+                                        value="Boots"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="boots">Boots</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="cudgel"
+                                        value="Cudgel"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="cudgel">Cudgel</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="gemfate"
+                                        value="Gem of Fate"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="gemfate">Gem of Fate</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="glowemrld"
+                                        value="Glowing Emerald"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="glowemrld">Glowing Emerald</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="katana"
+                                        value="Katana"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="katana">Katana</label>
+                                    </li>
+                                  </ul>
+                                </template>
+                              </Dropdown>
+                            </li>
+                            <li>
+                              <Dropdown>
+                                <template slot="btn">Tier II</template>
+                                <template slot="body">
+                                  <ul>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="booksouls"
+                                        value="Book of Souls"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="booksouls">Book of Souls</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="clericclk"
+                                        value="Cleric's Cloak"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="clericclk">Cleric's Cloak</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="heavyhmr"
+                                        value="Heavy Hammer"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="heavyhmr">Heavy Hammer</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="sagestn"
+                                        value="Sage's Stone"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="sagestn">Sage's Stone</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="splfocus"
+                                        value="Spell Focus"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="splfocus">Spell Focus</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="stlmail"
+                                        value="Steel Mail"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="stlmail">Steel Mail</label>
+                                    </li>
+                                  </ul>
+                                </template>
+                              </Dropdown>
+                            </li>
+                            <li>
+                              <Dropdown>
                                 <template slot="btn">Tier III</template>
                                 <template slot="body">
                                   <ul>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="bookthoth"
+                                        value="Book of Thoth"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="bookthoth">Book of Thoth</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="doomorb"
+                                        value="Doom Orb"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="doomorb">Doom Orb</label>
+                                    </li>
                                     <li>
                                       <input
                                         type="checkbox"
@@ -85,6 +233,16 @@
                                     <li>
                                       <input
                                         type="checkbox"
+                                        id="midmail"
+                                        value="Midgardian Mail"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="midmail">Midgardian Mail</label>
+                                    </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
                                         id="mailrn"
                                         value="Mail of Renewal"
                                         v-model="ItemNames"
@@ -112,6 +270,16 @@
                                       />
                                       <label for="magus">Spear of the Magus</label>
                                     </li>
+                                    <li>
+                                      <input
+                                        type="checkbox"
+                                        id="warstaff"
+                                        value="Warlock's Staff"
+                                        v-model="ItemNames"
+                                        @change="addItem()"
+                                      />
+                                      <label for="warstaff">Warlock's Staff</label>
+                                    </li>
                                   </ul>
                                 </template>
                               </Dropdown>
@@ -119,6 +287,8 @@
                           </ul>
                         </template>
                       </Dropdown>
+                    </li>
+                    <li>
                       <Dropdown>
                         <template slot="btn">Relics</template>
                         <template slot="body">
@@ -136,6 +306,26 @@
                             <li>
                               <input
                                 type="checkbox"
+                                id="horremb"
+                                value="Horrific Emblem"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="horremb">Horrific Emblem</label>
+                            </li>
+                            <li>
+                              <input
+                                type="checkbox"
+                                id="medcloak"
+                                value="Medication Cloak"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="medcloak">Medication Cloak</label>
+                            </li>
+                            <li>
+                              <input
+                                type="checkbox"
                                 id="purificbds"
                                 value="Purification Beads"
                                 v-model="ItemNames"
@@ -144,6 +334,45 @@
                               <label for="purificbds">Purification Beads</label>
                             </li>
                           </ul> 
+                        </template>
+                      </Dropdown>
+                    </li>
+                    <li>
+                      <Dropdown>
+                        <template slot="btn">Consumable Items</template>
+                        <template slot="body">
+                          <ul>
+                            <li>
+                              <input
+                                type="checkbox"
+                                id="elixpow"
+                                value="Elixir of Power"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="elixpow">Elixir of Power</label>
+                            </li>
+                            <li>
+                              <input
+                                type="checkbox"
+                                id="healpot"
+                                value="Healing Potion"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="healpot">Healing Potion</label>
+                            </li>
+                            <li>
+                              <input
+                                type="checkbox"
+                                id="manapot"
+                                value="Mana Potion"
+                                v-model="ItemNames"
+                                @change="addItem()"
+                              />
+                              <label for="manapot">Mana Potion</label>
+                            </li>
+                          </ul>
                         </template>
                       </Dropdown>
                     </li>
@@ -225,6 +454,7 @@ export default {
   },
   methods: {
     addItem() {
+      //will leave this part alone for now, incase it interfears with upcoming plans
       var checkBox = document.getElementById("jotunns");
       if (checkBox.checked == true) {
         this.statistics[0].baseAtkDamage += 40;
