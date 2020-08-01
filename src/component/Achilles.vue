@@ -124,12 +124,12 @@
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="sagestn"
+                                        id="sagestone"
                                         value="Sage's Stone"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="sagestn">Sage's Stone</label>
+                                      <label for="sagestone">Sage's Stone</label>
                                     </li>
                                     <li>
                                       <input
@@ -144,12 +144,12 @@
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="stlmail"
+                                        id="steelmail"
                                         value="Steel Mail"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="stlmail">Steel Mail</label>
+                                      <label for="steelmail">Steel Mail</label>
                                     </li>
                                   </ul>
                                 </template>
@@ -193,32 +193,32 @@
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="heartsk"
+                                        id="heartskr"
                                         value="Heartseeker"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="heartsk">Heartseeker</label>
+                                      <label for="heartskr">Heartseeker</label>
                                     </li>
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="hideofur"
+                                        id="hideurchin"
                                         value="Hide of the Urchin"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="hideofur">Hide of the Urchin</label>
+                                      <label for="hideurchin">Hide of the Urchin</label>
                                     </li>
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="hydral"
+                                        id="hydralam"
                                         value="Hydra's Lament"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="hydral">Hydra's Lament</label>
+                                      <label for="hydralam">Hydra's Lament</label>
                                     </li>
                                     <li>
                                       <input
@@ -243,12 +243,12 @@
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="mailrn"
+                                        id="mailrenew"
                                         value="Mail of Renewal"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="mailrn">Mail of Renewal</label>
+                                      <label for="mailrenew">Mail of Renewal</label>
                                     </li>
                                     <li>
                                       <input
@@ -263,12 +263,12 @@
                                     <li>
                                       <input
                                         type="checkbox"
-                                        id="magus"
+                                        id="spearmagus"
                                         value="Spear of the Magus"
                                         v-model="ItemNames"
                                         @change="addItem()"
                                       />
-                                      <label for="magus">Spear of the Magus</label>
+                                      <label for="spearmagus">Spear of the Magus</label>
                                     </li>
                                     <li>
                                       <input
@@ -306,12 +306,12 @@
                             <li>
                               <input
                                 type="checkbox"
-                                id="horremb"
+                                id="horremblem"
                                 value="Horrific Emblem"
                                 v-model="ItemNames"
                                 @change="addItem()"
                               />
-                              <label for="horremb">Horrific Emblem</label>
+                              <label for="horremblem">Horrific Emblem</label>
                             </li>
                             <li>
                               <input
@@ -326,12 +326,12 @@
                             <li>
                               <input
                                 type="checkbox"
-                                id="purificbds"
+                                id="purificbead"
                                 value="Purification Beads"
                                 v-model="ItemNames"
                                 @change="addItem()"
                               />
-                              <label for="purificbds">Purification Beads</label>
+                              <label for="purificbead">Purification Beads</label>
                             </li>
                           </ul> 
                         </template>
