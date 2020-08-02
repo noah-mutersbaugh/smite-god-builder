@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <Statistics
+        <BaseStats
           :name="statistics[0].name"
           :health="statistics[0].health"
           :mana="statistics[0].mana"
@@ -69,7 +69,7 @@
 
 <script>
 // import Vue from 'vue';
-import Statistics from "@/component/BaseStats.vue";
+import BaseStats from "@/component/BaseStats.vue";
 import { mapState } from "vuex";
 import store from "@/api/shop.js";
 
@@ -77,7 +77,7 @@ export default {
   name: "god",
   store,
   components: {
-    Statistics,
+    BaseStats,
     // LevelChange
   },
   data() {

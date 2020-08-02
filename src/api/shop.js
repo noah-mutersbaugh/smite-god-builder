@@ -1,13 +1,15 @@
 import axios from "axios";
 import Vuex from "vuex";
 import Vue from "vue";
-// import GodsJSON from "@/GodsJSON";
+import GodsJSON from "@/GodsJSON.json";
 
 Vue.use(Vuex);
 
 // Set string variables
-const devID = "2944";
-const authKey = "89E2351C09554B0C84E83756409BACF6";
+const devID = process.env.VUE_APP_SMITE_DEV_ID; 
+const authKey = process.env.VUE_APP_SMITE_API_KEY; 
+
+
 const moment = require("moment");
 const time = moment(new Date())
   .utc()
@@ -36,15 +38,7 @@ const store = new Vuex.Store({
   actions: {
     startSession({ commit }) {
       axios
-        .get(createsessionURL, {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods":
-              "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-            "Access-Control-Allow-Headers":
-              "Origin, Content-Type, X-Auth-Token",
-          },
-        })
+        .get(createsessionURL)
         .then((resp) => {
           commit("updatePosts", resp.data);
           commit("changeLoadingState", false);
@@ -68,12 +62,16 @@ const store = new Vuex.Store({
         })
         .then((resp) => {
           console.log(resp);
+          commit("setGodsJSONObject", resp.data)
         })
         .catch((err) => {
           console.log("Failure: " + err);
           // Show message that something went wrong
         });
     },
+    startLocalSession({ commit }) {
+      commit("setGodsJSONObject", GodsJSON.data)
+    }
   },
   mutations: {
     updatePosts(state, posts) {
@@ -88,10 +86,13 @@ const store = new Vuex.Store({
     setGodsURL(state, getgodsURL) {
       state.getgodsURL = getgodsURL;
     },
-    // setGodsJSONObject(state, godsJSONObject) {
-    //   state.godsJSONObject = godsJSONObject;
-    // }
+    setGodsJSONObject(state, godsJSONObject) {
+      state.godsJSONObject = godsJSONObject;
+    }
   },
+  getters: {
+    getGods: (state) => state.godsJSONObject,
+  }
 });
 
 export default store;

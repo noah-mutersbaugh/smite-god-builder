@@ -15,7 +15,7 @@ import './assets/styles/global.scss';
 //creating routers to different pages
 import router from './router/routes';
 
-import store from './store';
+import store from '@/api/shop.js';
 
 // Create the app and place inside the HTML structure.
 new Vue({

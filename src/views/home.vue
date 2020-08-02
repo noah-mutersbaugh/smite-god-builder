@@ -10,10 +10,9 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-            <GodCard
-            v-for="god in gods"
-            v-bind:key="god.Name"
-            v-bind:god="god"></GodCard>
+            <div class="GodCardsList"> <!-- go through each god in the json -->
+              <GodCard v-for="god in getGods" v-bind:key="god.Name" v-bind:god="god"></GodCard>
+            </div>
           </div>
         </div>
       </div>
@@ -22,12 +21,28 @@
 </template>
 
 <script>
+import GodCard from '@/component/GodCard.vue';
+import { mapGetters } from 'vuex';
+
+
 export default {
+  components: {
+    GodCard
+  },
+  computed: {
+    ...mapGetters([
+      'getGods'
+    ])
+  },
+  created() {
+    this.$store.dispatch('startLocalSession');
+  },
   data() {
     return {
-    }
-  }
-}
+      
+    };
+  },
+};
 </script>
 
 <style scoped>

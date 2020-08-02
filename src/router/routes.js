@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import Home from '../component/home.vue';
-import God from '../component/god.vue';
+import Home from '../views/home.vue';
+import God from '../views/GodDetails.vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
@@ -12,7 +12,7 @@ const routes = [
         component: Home
     },
     {
-        path: '/god',
+        path: '/god/:name',
         name: 'God',
         component: God
     }
