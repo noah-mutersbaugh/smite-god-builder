@@ -6,14 +6,15 @@
           <div class="col">
             <h1 class="text-center">{{god.Name}}</h1>
             <p class="lead text-muted"></p>
-            <div class="character-image">
-              <img v-bind:src="god.godIcon_URL" class=".img-thumbnail" />
+            <div class="image-center">
+              <div class="character-image">
+                <img v-bind:src="god.godIcon_URL" class=".img-thumbnail" />
+              </div>
             </div>
           </div>
         </div>
 
         <BaseStats v-bind:god="god"></BaseStats>
-
       </div>
     </main>
   </div>
@@ -40,7 +41,7 @@ export default {
       return this.getGods.find((god) => god.id == this.$route.params.id);
     },
     item() {
-      return this.getItems.find((item) => item.id)
+      return this.getItems.find((item) => item.id);
     },
     ...mapGetters(["getGods", "getItems"]),
   },
@@ -71,5 +72,11 @@ export default {
 
 #top-row {
   width: 100%;
+}
+
+.image-center {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 </style>

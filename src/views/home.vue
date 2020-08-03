@@ -83,4 +83,34 @@ export default {
 #app {
   width: 0;
 }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1340px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1540px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .container {
+    max-width: 1740px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .container {
+    max-width: 1940px;
+  }
+}
 </style>
