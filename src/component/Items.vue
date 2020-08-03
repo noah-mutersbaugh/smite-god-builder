@@ -20,6 +20,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+
 export default {
   name: 'items',
   data() {
@@ -31,9 +32,7 @@ export default {
   },
   methods: {
       add() {
-          if (this.itemsToApply.length < 6){
-              this.itemsToApply.push(this.itemToAdd);
-          }
+            this.itemsToApply.push(this.itemToAdd);
       },
       remove(ID) {
             this.itemsToApply = this.itemsToApply.filter(item => item.ItemId != ID);

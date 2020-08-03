@@ -10,9 +10,9 @@
       <div class="album py-5 bg-light">
         <div class="container">
           <div class="row">
-            <div class="GodCardsList"> <!-- go through each god in the json -->
-              <GodCard v-for="god in getGods" v-bind:key="god.id" v-bind:god="god"></GodCard>
-            </div>
+            <!-- <div class="GodCardsList"> go through each god in the json -->
+              <GodCard class="col" v-for="god in getGods" v-bind:key="god.id" v-bind:god="god"></GodCard>
+            <!-- </div> -->
           </div>
         </div>
       </div>

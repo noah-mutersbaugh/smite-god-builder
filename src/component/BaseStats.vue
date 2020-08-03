@@ -16,17 +16,18 @@
       </thead>
       <tbody>
         <tr>
-          <td>{{ (god.Health + (level * god.HealthPerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.Mana + (level * god.ManaPerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.PhysicalPower + (level * god.PhysicalPowerPerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.PhysicalProtection + (level * god.PhysicalProtectionPerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.MagicProtection + (level * god.MagicProtectionPerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.HealthPerFive + (level * god.HP5PerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.ManaPerFive + (level * god.MP5PerLevel) ) | roundedWhole }}</td>
-          <td>{{ (god.AttackSpeed + (level * god.AttackSpeedPerLevel) ) | roundedHundredth }}</td>
+          <td>{{ calculateValue("Health") | roundedWhole }}</td>
+          <td>{{ calculateValue("Mana") | roundedWhole }}</td>
+          <td>{{ calculateValue("PhysicalPower") | roundedWhole }}</td>
+          <td>{{ calculateValue("PhysicalProtection") | roundedWhole }}</td>
+          <td>{{ calculateValue("MagicProtection") | roundedWhole }}</td>
+          <td>{{ calculateValue("HealthPerFive") | roundedWhole }}</td>
+          <td>{{ calculateValue("ManaPerFive") | roundedWhole }}</td>
+          <td>{{ calculateValue("AttackSpeed") | roundedHundredth }}</td>
         </tr>
       </tbody>
     </table>
+
     <div id="LevelChange">
       <div class="input-group w-25 mb-3">
         <div class="input-group-prepend">
@@ -56,16 +57,51 @@
         </div>
       </div>
     </div>
+
+    <div>
+      <select class="form-control" v-model="itemCategory">
+        <option v-bind:value="null">Choose Category</option>
+        <option
+          v-bind:key="category"
+          v-bind:value="category"
+          v-for="(items, category) in getItems"
+        >{{category}}</option>
+      </select>
+      <select class="form-control" v-if="itemCategory != null" v-model="itemToAdd">
+        <option
+          v-bind:key="item.id"
+          v-bind:value="item"
+          v-for="item in categoryItems"
+        >{{item.DeviceName}}</option>
+      </select>
+      <button
+        class="btn btn-primary"
+        v-if="itemCategory != null"
+        v-on:click="add"
+        :disabled="itemsToApply.length == 6"
+      >Add Item</button>
+      <div>
+        <div id="Build" :key="item.ItemId" v-for="item in itemsToApply">
+          <div>{{item.DeviceName}}</div>
+          <button class="btn btn-danger" v-on:click="remove(item.ItemId)">Remove</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   props: ["god"],
-  computed: {},
   data() {
     return {
       level: 1,
+      itemCategory: null,
+      itemToAdd: null,
+      itemsToApply: [],
+      statsToApply: []
     };
   },
   methods: {
@@ -77,6 +113,40 @@ export default {
         this.level--;
       }
     },
+    add() {
+      this.itemsToApply.push(this.itemToAdd);
+    },
+    remove(ID) {
+      this.itemsToApply = this.itemsToApply.filter((item) => item.ItemId != ID);
+    },
+    setItem(item) {
+      this.itemToAdd = item;
+    },
+    calculateValue(key) {
+      let itemKey = key;
+      if (key == "HealthPerFive") {
+        itemKey = "HP5";
+      } else if (key == "ManaPerFive") {
+        itemKey = "MP5";
+      } 
+
+      let value = this.god[key];
+      
+      value += ((this.level-1) * this.god[itemKey+"PerLevel"]);
+      this.itemsToApply.forEach(item => {
+        item.ItemDescription.Menuitems.forEach(menuItem => {
+          if (menuItem.Description == itemKey){
+            if (menuItem.Description == 'Attack Speed'){
+              value += parseInt(menuItem.Value, 10)/100;
+            } else {
+              value += parseInt(menuItem.Value, 10);
+            }
+          }
+        });
+      });
+      
+      return value;
+    }
   },
   filters: {
     roundedHundredth(val) {
@@ -85,6 +155,15 @@ export default {
     roundedWhole(val) {
       return Math.round(val);
     },
+  },
+  computed: {
+    categoryItems() {
+      const currentIDs = this.itemsToApply.map((i) => i.ItemId);
+      return this.getItems[this.itemCategory].filter(
+        (item) => currentIDs.indexOf(item.ItemId) == -1
+      );
+    },
+    ...mapGetters(["getItems"]),
   },
 };
 </script>
@@ -96,11 +175,17 @@ th {
 
 #LevelChange {
   margin: 0 auto;
-  
+
   div {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
   }
+}
+
+#Build {
+  display: flex;
+  flex-flow: row-nowrap;
+  justify-content: space-between;
 }
 </style>

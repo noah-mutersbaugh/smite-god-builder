@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row" id="top-row">
           <div class="col">
-            <h1 class="text-center">The builder parts</h1>
+            <h1 class="text-center">{{god.Name}}</h1>
             <p class="lead text-muted"></p>
             <div class="character-image">
               <img v-bind:src="god.godIcon_URL" class=".img-thumbnail" />
@@ -14,7 +14,6 @@
 
         <BaseStats v-bind:god="god"></BaseStats>
 
-        <Items></Items>
       </div>
     </main>
   </div>
@@ -23,14 +22,12 @@
 <script>
 // import Vue from 'vue';
 import BaseStats from "@/component/BaseStats.vue";
-import Items from "@/component/Items.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "GodDetails",
   components: {
     BaseStats,
-    Items
   },
   data() {
     return {
