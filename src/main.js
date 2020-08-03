@@ -4,7 +4,12 @@ import App from './App.vue';
 
 Vue.config.productionTip = false; // Disables "Running in development mode." notification.
 
+
+
 // Import bootstrap
+import { BootstrapVue } from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'bootstrap/dist/css/bootstrap.css';
 import './assets/styles/global.scss';
 

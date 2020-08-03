@@ -11,7 +11,7 @@
             <button
               type="button"
               class="btn btn-sm btn-outline-secondary"
-              @click="$router.push('/god/'+ god.Name)"
+              @click="$router.push('/god/'+ god.id)"
             >View</button>
           </div>
         </div>
@@ -23,11 +23,7 @@
 <script>
 export default {
   name: "god-card",
-  computed: {
-    god() {
-      return this.$attrs.god;
-    },
-  },
+  props: ['god'],
   data() {
     return {};
   },
