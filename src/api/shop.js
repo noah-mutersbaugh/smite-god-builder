@@ -2,6 +2,7 @@ import axios from "axios";
 import Vuex from "vuex";
 import Vue from "vue";
 import GodsJSON from "@/GodsJSON.json";
+import ItemsJSON from "@/ItemsJSON.json";
 
 Vue.use(Vuex);
 
@@ -13,7 +14,7 @@ const authKey = process.env.VUE_APP_SMITE_API_KEY;
 const moment = require("moment");
 const time = moment(new Date())
   .utc()
-  .format("YYYYMMDDkkmmss");
+  .format("YYYYMMDDHHmmss");
 
 // Hash to create signature
 var md5 = require("md5");
@@ -33,10 +34,12 @@ const store = new Vuex.Store({
     posts: [],
     loading: true,
     sessionID: "",
-    godsJSONObject: {}
+    godsJSONObject: {},
+    itemsJSONObject: {},
+    items: {}
   },
   actions: {
-    startSession({ commit }) {
+    startSession({ commit, state }) {
       axios
         .get(createsessionURL)
         .then((resp) => {
@@ -58,11 +61,34 @@ const store = new Vuex.Store({
             time +
             "/" +
             1;
+
           return axios.get(getgodsURL);
         })
         .then((resp) => {
           console.log(resp);
-          commit("setGodsJSONObject", resp.data)
+          commit("setGodsJSONObject", resp.data);
+
+          const md5GetItemsString = devID + "getitems" + authKey + time;
+          const signature = md5(md5GetItemsString);
+
+          const getitemsURL =
+            "https://cors-anywhere.herokuapp.com/http://api.smitegame.com/smiteapi.svc/getitemsjson/" +
+            devID +
+            "/" +
+            signature +
+            "/" + 
+            state.sessionID +
+            "/" +
+            time +
+            "/" +
+            1;
+            axios.get(getitemsURL)
+            .then(resp => {
+              commit("setItemsJSONObject", resp.data);
+            });
+        })
+        .then((resp) => {
+          console.log(resp)
         })
         .catch((err) => {
           console.log("Failure: " + err);
@@ -70,7 +96,8 @@ const store = new Vuex.Store({
         });
     },
     startLocalSession({ commit }) {
-      commit("setGodsJSONObject", GodsJSON.data)
+      commit("setGodsJSONObject", GodsJSON);
+      commit("setItemsJSONObject", ItemsJSON);
     }
   },
   mutations: {
@@ -88,10 +115,25 @@ const store = new Vuex.Store({
     },
     setGodsJSONObject(state, godsJSONObject) {
       state.godsJSONObject = godsJSONObject;
+    },
+    setItemsJSONObject(state, itemsJSONObject) {
+      // Parse Items JSON file to ensure consistency in category names
+      state.itemsJSONObject = itemsJSONObject;
+      itemsJSONObject.forEach(item => {
+        item.ItemDescription.Menuitems.forEach(menuItem => {
+          let normalizedCategory = menuItem.Description.replace(/\w\S*/g, t => t.charAt(0).toUpperCase() + t.substr(1).toLowerCase()).trim();  //title case 
+          normalizedCategory = normalizedCategory.replace(/:$/g, ""); // remove trailing colon
+          if (state.items[normalizedCategory] == undefined){
+            state.items[normalizedCategory] = [];
+          }
+          state.items[normalizedCategory].push(item);
+        });
+      })
     }
   },
   getters: {
     getGods: (state) => state.godsJSONObject,
+    getItems: (state) => state.items
   }
 });
 

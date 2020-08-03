@@ -13,6 +13,8 @@
         </div>
 
         <BaseStats v-bind:god="god"></BaseStats>
+
+        <Items></Items>
       </div>
     </main>
   </div>
@@ -21,12 +23,14 @@
 <script>
 // import Vue from 'vue';
 import BaseStats from "@/component/BaseStats.vue";
+import Items from "@/component/Items.vue";
 import { mapGetters } from "vuex";
 
 export default {
   name: "GodDetails",
   components: {
     BaseStats,
+    Items
   },
   data() {
     return {
@@ -38,7 +42,10 @@ export default {
     god() {
       return this.getGods.find((god) => god.id == this.$route.params.id);
     },
-    ...mapGetters(["getGods"]),
+    item() {
+      return this.getItems.find((item) => item.id)
+    },
+    ...mapGetters(["getGods", "getItems"]),
   },
   created() {
     //this.$store.dispatch('startSession');
